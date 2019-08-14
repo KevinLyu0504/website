@@ -1,4 +1,636 @@
-<h1>下载内容</h1>
-<a href="https://drive.google.com/open?id=1yAohaeqS8woe67nX9CzlLihKdtK14RPK" download>123123</a>
-<h1>123</h1>
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=500t29l39u9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+<html>
+<head>
+<title>座位预定</title>
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=500t29l39u9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+<script>
+$(document).ready(function(){
+
+                var seat_num ;
+                var total_bill      = 0 ;
+                var pricePerTicked  = 300;//单价
+                var maximumSeats    =   5;//预定座位数目的最大限制
+
+                $('#bookNowButton').hide(); // 隐藏预定按钮
+
+                $('.seat').each(function() {       
+                    var column_num = parseInt( $(this).index() ) + 1;
+                    var row_num = parseInt( $(this).parent().index() )+1;    
+                    seat_num = row_num+"-"+column_num ;  
+                    $(this).text(seat_num); // 座位号
+                    $(this).addClass("seat"+seat_num);  // 个座位加css
+                });
+
+                $("#seats .seat").click(function() {  
+                        $('#errMsg').html('');
+                        if($(this).hasClass('select')){ // 检查是否被选中
+                            $(this).removeClass('select'); //如果选中了，移除选中的css
+                            $(this).css('background-color','#D8D8D8'); // 重新加个背景
+
+                            var currentSeatClass = $(this).attr('class').split(' ')[1]; 
+
+                            console.log(currentSeatClass);
+                             $( "#selected_seat ."+currentSeatClass ).remove();
+
+                        }else if($(".your_selected_seat").length<maximumSeats && !$(this).hasClass('select')){ // 检查预定的座位数目是否超出限制
+                            $(this).css('background-color','#71DCAA'); // 加背景颜色
+                            $(this).addClass("select"); // 添加选中css
+
+
+                            var column_num = parseInt( $(this).index() ) + 1;
+                            var row_num = parseInt( $(this).parent().index() )+1;    
+                            $( "#selected_seat" ).append("<span class='your_selected_seat seat"+row_num+"-"+column_num+" '> 座位号: <b style='color:#EAABFF'>" + row_num+"-"+column_num +"</b> </br></span>");
+                        }else {
+                            $('#errMsg').html('您选中的座位已经超过限制.');    
+                        }
+
+                        if($(".your_selected_seat").length){
+                            $('#bookNowButton').fadeIn(1000);
+                        }else {
+                            $('#bookNowButton').fadeOut(1000);
+                        }
+                        //计算总价
+                        total_bill = $(".your_selected_seat").length * pricePerTicked;
+                        $('#total > span').html(total_bill);
+                });
+
+
+    //}
+
+
+});
+</script>
+</head>
+<body>      
+
+
+            <!--BOOKING SECTION START-->
+
+            <div style="width:900px;margin: 0 auto;">
+            <span id='screen'>
+             <p>
+                座位预定
+            </p>
+            </span>
+            <div id="seats">
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+                <div class="seatsRaw">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+
+            </div>
+
+              <div id="booking_desc">
+                <div class="booking_left">
+                    <p style="color: #FBBC53;font-weight: bold; font-size: larger;">您选中的座位 </p>
+                    <div id="selected_seat"></div>
+                    <br>
+                    <button id="bookNowButton" type="button" >现在预定</button>
+                    <div id="errMsg"></div>
+                </div>
+
+                <div class="booking_right">每个座位的单价: 300.00 元
+                    <br><br>
+                    <div id="total">总价：<span> 0 </span></div>
+                </div>
+             </div>
+
+
+        </div>
+
+
+
+</html>
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+CSS代码（style.css）：
+
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    background: #250d0b url(images/templatemo_bg.jpg) top repeat-x;
+}
+
+/*start booking*/
+
+#screen{
+    display: block;
+    width: 600px;
+    color: red;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    border: 3px solid #af1313;
+    text-align: center;
+    margin: 10px auto 20px auto;
+}
+#seats{
+    border: 1px solid green;
+    width: 844px;
+    margin: 0 auto;
+    padding: 10px;
+    background: white;
+}
+.seat {
+    float: left;
+    width: 32px;
+    box-sizing: border-box;
+    color: #676767;
+    padding: 1px;
+    height: 30px;
+    background: #D8D8D8;
+    border: 1px solid #979797;
+    margin: 5px;
+    border-bottom: 3px solid #F35E4F;
+    cursor: pointer;
+}
+.seatsRaw {
+    display:inline-block;
+}
+#booking_desc {
+    width: 550px;
+    /* border: 1px solid red; */
+    background-color: #3C3636;
+    color: #FAFAFA;
+    margin: 30px auto;
+    padding: 10px;
+    display: table;
+    }
+.booking_left, .booking_right {
+    width:250px;
+    float:left;
+    }
+#total span {
+    font-size: 16px;
+    color: burlywood;
+    }
+#errMsg{
+    color: #FF7777;
+    }
+
