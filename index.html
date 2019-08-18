@@ -53,22 +53,28 @@
         find_result.innerHTML = search_site + "的邮箱是：" + siteurl;  
     }
     //将所有存储在localStorage中的对象提取出来，并展现到界面上
-    function loadAll(){  
-        var list = document.getElementById("list");  
-        if(localStorage.length>0){  
-            var result = "<table border='1'>";  
-            result += "<tr><td>姓名</td><td>邮箱</td></tr>操作</td></tr>";  
-            for(var i=0;i<localStorage.length;i++){  
-                var sitename = localStorage.key(i);  
-                var siteurl = localStorage.getItem(sitename);  
-                result += "<tr><td>"+sitename+"</td><td>"+siteurl+"</td>""<td><input type=button value=删除 onclick=del("+"'"+sitename+"'"+") ></td></tr>";  
-            }  
-            result += "</table>";  
-            list.innerHTML = result;  
-        }else{  
-            list.innerHTML = "数据为空……";  
-        }  
-    }  
+    function loadAll(){
+      var list = document.getElementById("list");
+      if(localStorage.length>0){
+          var result = "<table border='1'>";
+          result += "<tr><td>key</td><td>value</td><td>操作</td></tr>";
+          for(var i=0;i<localStorage.length;i++){
+             var sitename = localStorage.key(i);
+             var siteurl = localStorage.getItem(sitename);
+             result += "<tr>" +
+                "<td>"+sitename+"</td>" +
+                "<td>"+siteurl+"</td>" +
+                "<td><input type=button value=删除 onclick=del("+"'"+sitename+"'"+") ></td>" +
+                "</tr>";
+    }
+    result += "</table>";
+    list.innerHTML = result;
+  }else{
+    list.innerHTML = "数据为空……";
+  }
+}
+
+//
 	    
      function del(name) {
 	     localStorage.removeItem(name);
