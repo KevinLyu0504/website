@@ -57,7 +57,7 @@
       var list = document.getElementById("list");
       if(localStorage.length>0){
           var result = "<table border='1'>";
-          result += "<tr><td>key</td><td>value</td><td>操作</td></tr>";
+          result += "<tr><td>姓名</td><td>邮箱</td><td>操作</td></tr>";
           for(var i=0;i<localStorage.length;i++){
              var sitename = localStorage.key(i);
              var siteurl = localStorage.getItem(sitename);
