@@ -17,17 +17,19 @@
 <h2 id="myHeader">吕楷文的网页</h2>
 <h>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h><br>
 <div style="border: 2px dashed #ccc;width:320px;text-align:center;">     
-        <label for="sitename">网站名(key)：</label>  
+        <label for="sitename">姓名：</label>  
         <input type="text" id="sitename" name="sitename" class="text"/>  
         <br/>  
-        <label for="siteurl">网 址(value)：</label>  
-        <input type="text" id="siteurl" name="siteurl"/>  
+        <label for="siteurl">邮箱：</label> 
+	<form action="demo-form.php">
+        <input type="text" id="siteurl" name="siteurl"/>
+	</form>	
         <br/>  
-        <input type="button" onclick="save()" value="新增记录"/>  
+        <input type="button" onclick="save()" value="存入信息"/>  
         <hr/>  
-        <label for="search_phone">输入网站名：</label>  
+        <label for="search_phone">输入姓名：</label>  
         <input type="text" id="search_site" name="search_site"/>  
-        <input type="button" onclick="find()" value="查找网站"/>  
+        <input type="button" onclick="find()" value="查找"/>  
         <p id="find_result"><br/></p>  
     </div>  
     <br/>  
