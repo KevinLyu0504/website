@@ -57,11 +57,11 @@
         var list = document.getElementById("list");  
         if(localStorage.length>0){  
             var result = "<table border='1'>";  
-            result += "<tr><td>姓名</td><td>邮箱</td></tr>";  
+            result += "<tr><td>姓名</td><td>邮箱</td></tr>操作</td></tr>";  
             for(var i=0;i<localStorage.length;i++){  
                 var sitename = localStorage.key(i);  
                 var siteurl = localStorage.getItem(sitename);  
-                result += "<tr><td>"+sitename+"</td><td>"+siteurl+"</td></tr>";  
+                result += "<tr><td>"+sitename+"</td><td>"+siteurl+"</td>""<td><input type=button value=删除 onclick=del("+"'"+sitename+"'"+") ></td></tr>";  
             }  
             result += "</table>";  
             list.innerHTML = result;  
