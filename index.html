@@ -68,7 +68,13 @@
         }else{  
             list.innerHTML = "数据为空……";  
         }  
-    }      
+    }  
+	    
+     function del(name) {
+	     localStorage.removeItem(name);
+             alert("删除成功!");
+             loadAll();
+    }
     </script>
   
   
