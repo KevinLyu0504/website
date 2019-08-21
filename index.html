@@ -59,7 +59,7 @@ body{
     <p id="find_result"><br/></p>  
  </div>  
  <br/>  
- <div id="list">  
+ <div id="list" style="color:White;">  
  </div>  
  <script>
 	// 载入所有存储在localStorage的数据
@@ -84,13 +84,13 @@ body{
       var list = document.getElementById("list");
       if(localStorage.length>0){
           var result = "<table border='1'>";
-          result += "<tr><td style="color:White;">姓名</td><td style="color:White;">邮箱</td><td style="color:White;">操作</td></tr>";
+          result += "<tr><td>姓名</td><td>邮箱</td><td>操作</td></tr>";
           for(var i=0;i<localStorage.length;i++){
              var sitename = localStorage.key(i);
              var siteurl = localStorage.getItem(sitename);
              result += "<tr>" +
-                "<td style="color:White;">"+sitename+"</td>" +
-                "<td style="color:White;">"+siteurl+"</td>" +
+                "<td>"+sitename+"</td>" +
+                "<td>"+siteurl+"</td>" +
                 "<td><input type=button value=删除 onclick=del("+"'"+sitename+"'"+") ></td>" +
                 "</tr>";
     }
