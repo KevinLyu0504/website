@@ -8,6 +8,12 @@
   padding: 40px;
   text-align: center;
 } 
+.cities {
+  background-color: black;
+  color: white;
+  margin: 20px;
+  padding: 20px;
+}
 </style>
   
 </head>
@@ -16,24 +22,40 @@
   
 <h2 id="myHeader">吕楷文的网页</h2>
 <h>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h><br>
+<div class="cities">
+<h2>London</h2>
+<p>London is the capital of England.</p>
+</div> 
+
+<div class="cities">
+<h2>Paris</h2>
+<p>Paris is the capital of France.</p>
+</div>
+
+<div class="cities">
+<h2>Tokyo</h2>
+<p>Tokyo is the capital of Japan.</p>
+</div>
+	
+	
 <div style="border: 2px dashed #ccc;width:320px;text-align:center;">     
-        <label for="sitename">姓名：</label>  
-        <input type="text" id="sitename" name="sitename" class="text"/>  
-        <br/>
-        <label for="siteurl">邮箱：</label> 
-        <input type="text" id="siteurl" name="siteurl"/>
-	<br/>
-        <input type="button" onclick="save()" value="存入信息"/>  
-        <hr/>  
-        <label for="search_phone">输入姓名：</label>  
-        <input type="text" id="search_site" name="search_site"/>  
-        <input type="button" onclick="find()" value="查找"/>  
-        <p id="find_result"><br/></p>  
-    </div>  
-    <br/>  
-    <div id="list">  
-    </div>  
-    <script>
+    <label for="sitename">姓名：</label>  
+    <input type="text" id="sitename" name="sitename" class="text"/>  
+    <br/>
+    <label for="siteurl">邮箱：</label> 
+    <input type="text" id="siteurl" name="siteurl"/
+    <br/>
+    <input type="button" onclick="save()" value="存入信息"/>  
+    <hr/>  
+    <label for="search_phone">输入姓名：</label>  
+    <input type="text" id="search_site" name="search_site"/>  
+    <input type="button" onclick="find()" value="查找"/>  
+    <p id="find_result"><br/></p>  
+</div>  
+<br/>  
+<div id="list">  
+</div>  
+<script>
 	// 载入所有存储在localStorage的数据
 	loadAll(); 	
 		
@@ -85,7 +107,6 @@
   
   
   
-<button type="button"><a href="https://www.revolvermaps.com/livestats/500t29l39u9/" target="_blank" style="font-family:courier;">查看具体访问数据</a></button>
 <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=500t29l39u9&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
  </body>
   
